@@ -37,6 +37,9 @@ const GlobalStyle = StyleSheet.create({
   px10: {
     paddingHorizontal: 10,
   },
+  mr10: {
+    marginRight: 10,
+  },
   my50: {
     marginVertical: 50,
   },

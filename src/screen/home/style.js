@@ -14,6 +14,7 @@ const Style = StyleSheet.create({
     top: -50,
     width: 168,
     height: 189,
+    borderRadius: 50,
   },
   productName: {
     top: 160,

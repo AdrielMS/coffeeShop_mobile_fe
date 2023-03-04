@@ -9,6 +9,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "./src/screen/home";
 import Order from "./src/screen/cart";
 import ProductDetail from "./src/screen/productDetail";
+import { Button } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ export function Root() {
         }}
       />
       <Drawer.Screen name="Order" component={Order} />
-      {/* <Stack.Screen name="Settings" component={Settings} /> */}
+      {/* <Button>LogOut</Button> */}
     </Drawer.Navigator>
   );
 }

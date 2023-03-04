@@ -2,8 +2,10 @@
 import { StatusBar } from "expo-status-bar";
 import { FlatList } from "react-native";
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import axios from "axios";
+import react, { useEffect, useState } from "react";
 
 //import icons
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -17,6 +19,17 @@ import Style from "./style";
 // const Drawer = createDrawerNavigator();
 
 export default function Home({ navigation }) {
+  const [dataProduct, setDataProduct] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://192.168.1.4:5000/api/v1/products`)
+      .then((res) => {
+        setDataProduct(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
   return (
     <View style={GlobalStyle.py30}>
       <View
@@ -65,21 +78,31 @@ export default function Home({ navigation }) {
           Favorite Product
         </Text>
       </View>
-      <View style={[GlobalStyle.my50, Style.card]}>
-        {/* <FlatList /> */}
-        <Pressable
-          onPress={() => {
-            navigation.navigate("productDetail");
-          }}
-        >
-          <Image
-            source={require("../../images/imageProduct1.png")}
-            style={Style.imageProduct}
-          />
-        </Pressable>
-        <Text style={Style.productName}>Hazelnut{`\n`}Latte</Text>
-        <Text style={Style.productPrice}>Rp. 15.000</Text>
-      </View>
+      <FlatList
+        horizontal
+        data={dataProduct}
+        renderItem={({ item }) => {
+          return (
+            <View style={[GlobalStyle.my50, GlobalStyle.mr10, Style.card]}>
+              {/* <FlatList /> */}
+              <Pressable
+                onPress={() => {
+                  navigation.navigate("productDetail");
+                }}
+              >
+                <Image
+                  source={{
+                    uri: `http://192.168.1.4:5000/upload/images/${item.images[0].filename}`,
+                  }}
+                  style={Style.imageProduct}
+                />
+              </Pressable>
+              <Text style={Style.productName}>{item.title}</Text>
+              <Text style={Style.productPrice}>{item.price}</Text>
+            </View>
+          );
+        }}
+      />
     </View>
   );
 }
