@@ -16,6 +16,9 @@ import { AntDesign } from "@expo/vector-icons";
 import GlobalStyle from "../../style/GlobalStyle";
 import Style from "./style";
 
+//import Component
+// import Logout from "../component/Logout";
+
 // const Drawer = createDrawerNavigator();
 
 export default function Home({ navigation }) {
@@ -103,6 +106,7 @@ export default function Home({ navigation }) {
           );
         }}
       />
+      {/* <Logout /> */}
     </View>
   );
 }

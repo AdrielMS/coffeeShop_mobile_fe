@@ -9,7 +9,11 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "./src/screen/home";
 import Order from "./src/screen/cart";
 import ProductDetail from "./src/screen/productDetail";
-import { Button } from "react-native";
+import Logout from "./src/screen/component/Logout";
+import Start from "./src/screen/Auth/start";
+import Welcome from "./src/screen/Auth/welcome";
+import Login from "./src/screen/Auth/login";
+import Register from "./src/screen/Auth/register";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +34,7 @@ export function Root() {
         }}
       />
       <Drawer.Screen name="Order" component={Order} />
-      {/* <Button>LogOut</Button> */}
+      <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );
 }
@@ -39,6 +43,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Start"
+          component={Start}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           name="Root"
           component={Root}
