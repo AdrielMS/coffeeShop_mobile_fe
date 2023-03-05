@@ -22,7 +22,9 @@ import ProductDetail from "../productDetail";
 
 // const Drawer = createDrawerNavigator();
 
-export default function Home({ navigation }) {
+export default function Home({ route, navigation }) {
+  const idu = route.params;
+  // console.log(idu);
   const [dataProduct, setDataProduct] = useState([]);
   useEffect(() => {
     axios
@@ -34,6 +36,7 @@ export default function Home({ navigation }) {
         console.log(err.message);
       });
   });
+
   return (
     <View style={GlobalStyle.py30}>
       <View

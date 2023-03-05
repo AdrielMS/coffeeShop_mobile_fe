@@ -19,7 +19,8 @@ const Login = ({ navigation }) => {
       .then((res) => {
         AsyncStorage.setItem("@userData", JSON.stringify(res.data.data));
         ToastAndroid.show("Login Success.", ToastAndroid.SHORT);
-        navigation.navigate("Root");
+        console.log(res.data.data.user.id);
+        navigation.navigate("Root", { idu: res.data.data.user.id });
       })
       .catch((err) => {
         ToastAndroid.show("Login Failed.", ToastAndroid.SHORT);

@@ -14,12 +14,13 @@ import Start from "./src/screen/Auth/start";
 import Welcome from "./src/screen/Auth/welcome";
 import Login from "./src/screen/Auth/login";
 import Register from "./src/screen/Auth/register";
+import ProfileScreen from "./src/screen/profile";
 
 const Stack = createNativeStackNavigator();
 
 const Drawer = createDrawerNavigator();
 
-export function Root() {
+export function Root({ route }) {
   return (
     <Drawer.Navigator>
       <Drawer.Screen
@@ -33,7 +34,11 @@ export function Root() {
           headerTintColor: "#FFF",
         }}
       />
-      <Drawer.Screen name="Order" component={Order} />
+      <Drawer.Screen
+        name="Profile"
+        component={ProfileScreen}
+        initialParams={route.params}
+      />
       <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );
@@ -43,7 +48,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Start"
           component={Start}
           options={{ headerShown: false }}
@@ -53,7 +58,7 @@ export default function App() {
           component={Welcome}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Register" component={Register} /> */}
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           name="Root"
