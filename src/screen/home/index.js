@@ -15,6 +15,7 @@ import { AntDesign } from "@expo/vector-icons";
 //import Style
 import GlobalStyle from "../../style/GlobalStyle";
 import Style from "./style";
+import ProductDetail from "../productDetail";
 
 //import Component
 // import Logout from "../component/Logout";
@@ -90,7 +91,7 @@ export default function Home({ navigation }) {
               {/* <FlatList /> */}
               <Pressable
                 onPress={() => {
-                  navigation.navigate("productDetail");
+                  navigation.navigate("productDetail", { id: item.id });
                 }}
               >
                 <Image

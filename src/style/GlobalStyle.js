@@ -59,6 +59,45 @@ const GlobalStyle = StyleSheet.create({
   absolute: {
     position: "absolute",
   },
+  bg: {
+    backgroundColor: "#F5F5F5",
+    flex: 1,
+    marginLeft: 24,
+    marginRight: 24,
+  },
+  brown: {
+    color: "#6A4029",
+  },
+  black: {
+    color: "#323232",
+  },
+  grey: {
+    color: "#727272",
+  },
+  regular: {
+    fontWeight: "500",
+  },
+  semiBold: {
+    fontWeight: "600",
+  },
+  bold: {
+    fontWeight: "700",
+  },
+  XL: {
+    fontSize: 28,
+  },
+  L: {
+    fontSize: 24,
+  },
+  M: {
+    fontSize: 18,
+  },
+  S: {
+    fontSize: 14,
+  },
+  XS: {
+    fontSize: 12,
+  },
 });
 
 export default GlobalStyle;

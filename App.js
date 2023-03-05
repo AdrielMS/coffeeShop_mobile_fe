@@ -60,7 +60,11 @@ export default function App() {
           component={Root}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="productDetail" component={ProductDetail} />
+        <Stack.Screen
+          name="productDetail"
+          component={ProductDetail}
+          // initialParams={id}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
