@@ -42,7 +42,7 @@ export default function ProductDetail({ route }) {
                 width: 200,
                 marginTop: 20,
                 resizeMode: "contain",
-                borderRadius: 10,
+                borderRadius: 50,
                 resizeMode: "cover",
               }}
             />
