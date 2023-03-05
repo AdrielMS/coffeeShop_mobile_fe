@@ -11,6 +11,7 @@ import {
   View,
   SafeAreaView,
   Button,
+  ToastAndroid,
 } from "react-native";
 import { useState, useEffect } from "react";
 import commonStyle from "../../style/commons";
@@ -96,23 +97,23 @@ const ProfileScreen = ({ route }) => {
     // console.log(phone);
     // console.log(password);
     // console.log(profile_image);
-    event.preventDefault();
-    const data = new FormData(event.target);
-    data.append("username", username);
-    data.append("Email", Email);
-    data.append("phone", phone);
-    data.append("address", address);
+    // event.preventDefault();
+    // const data = new FormData(event.target);
+    // data.append("username", username);
+    // data.append("Email", Email);
+    // data.append("phone", phone);
+    // data.append("address", address);
     // data.append("profile_image", profile_image);
     axios
-      .patch(`http:///192.168.1.4:5000/api/v1/users/${idu}`, data, {
+      .patch(`http:///192.168.1.4:5000/api/v1/users/${idu}`, userData, {
         headers: {
           "content-type": "multipart/form-data",
         },
       })
       .then((res) => {
-        alert(res.data.message);
+        ToastAndroid.show("Edit Success", ToastAndroid.SHORT);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => ToastAndroid.show("Edit Failed", ToastAndroid.SHORT));
   };
 
   return (
@@ -165,7 +166,7 @@ const ProfileScreen = ({ route }) => {
             style={style.input}
             onChangeText={(e) => setUserData({ ...userData, username: e })}
             placeholder="Fill Your Name"
-            value={username}
+            // value={username}
           />
           <Text style={[GlobalStyle.grey, style.subTitle]}>Email</Text>
           <TextInput
