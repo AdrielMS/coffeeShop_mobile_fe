@@ -15,7 +15,7 @@ import Style from "./style";
 import GlobalStyle from "../../style/GlobalStyle";
 
 export default function ProductDetail({ route }) {
-  const { id } = route.params.params;
+  const { id } = route.params;
   console.log(id);
   const [productDetail, setProductDetail] = useState([]);
   useEffect(() => {

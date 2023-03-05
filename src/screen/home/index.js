@@ -23,7 +23,6 @@ import ProductDetail from "../productDetail";
 // const Drawer = createDrawerNavigator();
 
 export default function Home({ route, navigation }) {
-  const idu = route.params;
   // console.log(idu);
   const [dataProduct, setDataProduct] = useState([]);
   useEffect(() => {
