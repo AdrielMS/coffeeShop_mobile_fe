@@ -77,7 +77,7 @@ const ProfileScreen = ({ route }) => {
         setDataProfile(res.data.data);
       })
       .catch((err) => console.log(err.message));
-  });
+  }, []);
 
   //patch profile
   //   const [username, setUsername] = useState("");

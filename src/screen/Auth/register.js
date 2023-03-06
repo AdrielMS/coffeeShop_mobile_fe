@@ -17,7 +17,6 @@ export default function Register() {
       data: formRegister,
     })
       .then((res) => {
-        AsyncStorage.setItem("@userData", JSON.stringify(res.data.data));
         ToastAndroid.show("Register Success.", ToastAndroid.SHORT);
         navigation.navigate("Login");
       })

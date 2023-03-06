@@ -1,13 +1,20 @@
 import { Text, View, Button, Pressable } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import GlobalStyle from "../../style/GlobalStyle";
 
 export default function Logout({ navigation }) {
   return (
-    <View>
+    <View
+      style={[
+        GlobalStyle.flex,
+        GlobalStyle.justifyCenter,
+        GlobalStyle.alignCenter,
+      ]}
+    >
       <Pressable
         onPress={() => {
           AsyncStorage.removeItem("@userData");
-          alert("logouted");
+          alert("You've been Log Out");
           navigation.navigate("Start");
         }}
       >

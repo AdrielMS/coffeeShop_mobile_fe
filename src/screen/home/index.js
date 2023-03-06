@@ -34,7 +34,7 @@ export default function Home({ route, navigation }) {
       .catch((err) => {
         console.log(err.message);
       });
-  });
+  }, []);
 
   return (
     <View style={GlobalStyle.py30}>

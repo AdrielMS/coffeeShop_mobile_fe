@@ -48,7 +48,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Start"
           component={Start}
           options={{ headerShown: false }}
@@ -58,7 +58,7 @@ export default function App() {
           component={Welcome}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Register" component={Register} /> */}
+        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           name="Root"
