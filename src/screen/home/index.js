@@ -27,7 +27,10 @@ export default function Home({ route, navigation }) {
   const [dataProduct, setDataProduct] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://192.168.1.4:5000/api/v1/products`)
+      // .get(`http://192.168.1.4:5000/api/v1/products`)
+      .get(
+        `https://coffeeshopbe-adrel-production.up.railway.app/api/v1/products`
+      )
       .then((res) => {
         setDataProduct(res.data.data);
       })
@@ -98,7 +101,9 @@ export default function Home({ route, navigation }) {
               >
                 <Image
                   source={{
-                    uri: `http://192.168.1.4:5000/upload/images/${item.images[0].filename}`,
+                    uri:
+                      // `http://192.168.1.4:5000/upload/images/${item.images[0].filename}`,
+                      `https://coffeeshopbe-adrel-production.up.railway.app/upload/images/${item.images[0].filename}`,
                   }}
                   style={Style.imageProduct}
                 />

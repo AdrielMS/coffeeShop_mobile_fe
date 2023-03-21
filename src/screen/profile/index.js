@@ -71,7 +71,10 @@ const ProfileScreen = ({ route }) => {
   useEffect(() => {
     // e.preventDefault();
     axios
-      .get(`http://192.168.1.4:5000/api/v1/users/${idu}`)
+      // .get(`http://192.168.1.4:5000/api/v1/users/${idu}`)
+      .get(
+        `https://coffeeshopbe-adrel-production.up.railway.app/api/v1/users/${idu}`
+      )
       .then((res) => {
         // console.log(dataProfile.profile_image);
         setDataProfile(res.data.data);
@@ -105,11 +108,16 @@ const ProfileScreen = ({ route }) => {
     // data.append("address", address);
     // data.append("profile_image", profile_image);
     axios
-      .patch(`http:///192.168.1.4:5000/api/v1/users/${idu}`, userData, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      })
+      .patch(
+        // `http:///192.168.1.4:5000/api/v1/users/${idu}`,
+        `https://coffeeshopbe-adrel-production.up.railway.app/api/v1/users/${idu}`,
+        userData,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      )
       .then((res) => {
         ToastAndroid.show("Edit Success", ToastAndroid.SHORT);
       })
@@ -121,7 +129,9 @@ const ProfileScreen = ({ route }) => {
       <View style={[GlobalStyle.flex, GlobalStyle.justifyCenter]}>
         <Image
           source={{
-            uri: `http://192.168.1.4:5000/upload/images/${dataProfile.profile_image}`,
+            uri:
+              // `http://192.168.1.4:5000/upload/images/${dataProfile.profile_image}`,
+              `https://coffeeshopbe-adrel-production.up.railway.app/upload/images/${dataProfile.profile_image}`,
           }}
           style={{
             height: 150,

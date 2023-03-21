@@ -12,7 +12,8 @@ const Login = ({ navigation }) => {
   });
   const handleLogin = () => {
     axios({
-      url: "http://192.168.1.4:5000/api/v1/auth/login",
+      // url: "http://192.168.1.4:5000/api/v1/auth/login",
+      url: "https://coffeeshopbe-adrel-production.up.railway.app/api/v1/auth/login",
       method: "post",
       data: formLogin,
     })
